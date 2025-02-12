@@ -1,0 +1,23 @@
+
+services:
+  db:
+    image: postgres:latest
+    container_name: postgres_container
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: devjava
+      POSTGRES_DB: aguaplantaDB
+    ports:
+      - "5432:5432"  # Expõe a porta 5432 do container na mesma porta da máquina
+    volumes:
+      - postgres_data:/var/lib/postgresql/data  # Armazenamento persistente dos dados
+    networks:
+      - my_network
+
+networks:
+  my_network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+    driver: local
