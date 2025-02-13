@@ -11,6 +11,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.util.List;
 
 @Service
 public class BancadaService {
@@ -43,5 +44,7 @@ public class BancadaService {
     }
 
 
-
+    public List<Bancada> listarTodas() {
+        return bancadaRepository.findAll();
+    }
 }

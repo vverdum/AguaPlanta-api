@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 
 @RestController
 @RequestMapping("/bancadas")
@@ -15,6 +16,11 @@ import java.io.IOException;
 public class BancadaController {
     @Autowired
     private BancadaService bancadaService;
+    @GetMapping
+    public ResponseEntity<List<Bancada>> listarBancadas() {
+        List<Bancada> bancadas = bancadaService.listarTodas();
+        return ResponseEntity.ok(bancadas);
+    }
 
     @PostMapping
     public ResponseEntity<Bancada> cadastrarBancada(@RequestBody Bancada bancada) {

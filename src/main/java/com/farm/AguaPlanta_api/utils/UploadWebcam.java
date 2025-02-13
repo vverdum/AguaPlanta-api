@@ -11,7 +11,7 @@ import java.nio.file.*;
 
 public class UploadWebcam {
     private static final String DIRECTORY_TO_WATCH = "C:/Users/vverd/OneDrive/Imagens/Webcam"; // Altere para seu caminho
-    private static final String UPLOAD_URL = "http://localhost:8080/bancadas/{}/imagem"; // URL da API
+    private static final String UPLOAD_URL = "http://localhost:8080/bancadas/{id}/imagem"; // URL da API
 
     public static void main(String[] args) throws IOException {
         WatchService watchService = FileSystems.getDefault().newWatchService();
