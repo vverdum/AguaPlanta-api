@@ -1,4 +1,4 @@
-package com.farm.AguaPlanta_api.service;
+package com.farm.AguaPlanta_api.services;
 import com.farm.AguaPlanta_api.entities.Cliente;
 import com.farm.AguaPlanta_api.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;

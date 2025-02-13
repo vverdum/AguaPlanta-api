@@ -12,7 +12,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data  # Armazenamento persistente dos dados
     networks:
-      - my_network
+      - vv_network
 
 networks:
   my_network:

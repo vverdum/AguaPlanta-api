@@ -16,7 +16,7 @@ public class SecurityConfig {
         http
                 .csrf().disable() // Desabilita CSRF (recomendado ativar em produção)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/public/**").permitAll() // Permite acesso a endpoints públicos
+                        .requestMatchers("/bancadas").permitAll() // 🔹 Permite POST sem autenticação
                         .anyRequest().authenticated() // Requer autenticação para outros endpoints
                 )
                 .httpBasic(); // Ativa autenticação básica
