@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 public class Bancada {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Geração automática do ID
+
     private Long id;
 
     @Column(nullable = false)

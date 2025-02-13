@@ -1,12 +1,11 @@
 package com.farm.AguaPlanta_api.Config;
 
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.web.SecurityFilterChain;
+
 
 @Configuration
 public class SecurityConfig {
@@ -14,17 +13,14 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .csrf().disable() // Desabilita CSRF (recomendado ativar em produção)
+                .csrf(AbstractHttpConfigurer::disable) // Desativa CSRF
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/bancadas").permitAll() // 🔹 Permite POST sem autenticação
-                        .anyRequest().authenticated() // Requer autenticação para outros endpoints
+                        .requestMatchers("/bancadas/**").permitAll() // Permite acesso às rotas das bancadas sem autenticação
+                        .anyRequest().authenticated()
                 )
-                .httpBasic(); // Ativa autenticação básica
-        return http.build();
-    }
+                .httpBasic(AbstractHttpConfigurer::disable) // Desativa HTTP Basic Authentication
+                .formLogin(AbstractHttpConfigurer::disable); // Desativa formulário de login
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder(); // Para encriptar senhas
+        return http.build();
     }
 }
