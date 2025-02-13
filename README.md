@@ -1,0 +1,1 @@
+O projeto Aguaplanta API é um sistema de irrigação inteligente desenvolvido com Java Spring Boot para o backend e um aplicativo Android como frontend. Seu foco é automatizar o controle de irrigação e fertirrigação e oferecer monitoramento em tempo real.
