@@ -17,6 +17,7 @@ import java.util.stream.Stream;
 
 @RestController
 @RequestMapping("/imagens")
+
 public class ImagemController {
 
     private static final String BASE_DIR = "uploads/";
@@ -59,4 +60,6 @@ public class ImagemController {
                     .max(Comparator.comparingLong(f -> f.toFile().lastModified())); // Última imagem pela data de modificação
         }
     }
+
+
 }

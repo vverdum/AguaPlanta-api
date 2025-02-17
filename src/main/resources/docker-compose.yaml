@@ -15,7 +15,7 @@ services:
       - vv_network
 
 networks:
-  my_network:
+  vv_network:  # Definindo a rede "vv_network"
     driver: bridge
 
 volumes:
